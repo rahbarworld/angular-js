@@ -33,6 +33,23 @@ myMod.config(function($routeProvider) {
     template: '<home user="$resolve.user"></home>',
     resolve: {
       user: function($http) { return $http.get('...'); }
+      body ng-app="F1FeederApp" ng-controller="driversController">
+  <table>
+    <thead>
+      <tr><th colspan="4">Drivers Championship Standings</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="driver in driversList">
+        <td>{{$index + 1}}</td>
+        <td>
+          <img src="img/flags/{{driver.Driver.nationality}}.png" />
+          {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+        </td>
+        <td>{{driver.Constructors[0].name}}</td>
+        <td>{{driver.points}}</td>
+      </tr>
+    </tbody>
+  </table>
     }
   });
 });
