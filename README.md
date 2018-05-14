@@ -1,54 +1,22 @@
-# angular-js
-function HeroDetailController() {
-  var ctrl = this;
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
 
-  ctrl.delete = function() 
-    ctrl.onDelete({hero: ctrl.hero});
-  };
-  ctrl.update = function(prop, value) {
-    ctrl.onUpdate({hero: ctrl.hero, prop: prop, value: value});
-  };
-}
+<script>
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Milk", "Bread", "Cheese"];
+});
+</script>
 
-angular.module('heroApp').component('heroDetail', {
-  templateUrl: 'heroDetail.html',
-  controller: HeroDetailController,
-  bindings: {
-    hero: '<',
-    onDelete: '&',
-    onUpdate: '&'
-  }
-});
+<div ng-app="myShoppingList" ng-controller="myCtrl">
+  <ul>
+    <li ng-repeat="x in products">{{x}}</li>
+  </ul>
+</div>
 
-ar myMod = angular.module('myMod', ['ngRoute']);
-myMod.component('home', {
-  template: '<h1>Home</h1><p>Hello, {{ $ctrl.user.name }} !</p>',
-  bindings: {
-    user: '<'
-  }
-});
-myMod.config(function($routeProvider) {
-  $routeProvider.when('/', {
-    template: '<home user="$resolve.user"></home>',
-    resolve: {
-      user: function($http) { return $http.get('...'); }
-      body ng-app="F1FeederApp" ng-controller="driversController">
-  <table>
-    <thead>
-      <tr><th colspan="4">Drivers Championship Standings</th></tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="driver in driversList">
-        <td>{{$index + 1}}</td>
-        <td>
-          <img src="img/flags/{{driver.Driver.nationality}}.png" />
-          {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
-        </td>
-        <td>{{driver.Constructors[0].name}}</td>
-        <td>{{driver.points}}</td>
-      </tr>
-    </tbody>
-  </table>
-    }
-  });
-});
+<p>So far we have made an HTML list based on the items of an array.</p>
+
+</body>
+</html>
