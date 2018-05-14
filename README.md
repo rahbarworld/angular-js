@@ -3,9 +3,9 @@ function HeroDetailController() {
   var ctrl = this;
 
   ctrl.delete = function() {
+  http://www.routeforpurchase.com/deals
     ctrl.onDelete({hero: ctrl.hero});
   };
-
   ctrl.update = function(prop, value) {
     ctrl.onUpdate({hero: ctrl.hero, prop: prop, value: value});
   };
